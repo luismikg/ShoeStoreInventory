@@ -11,4 +11,13 @@
     <string name="login_failed">"Login failed"</string>
     <string name="user">User</string>
     <string name="password">Password</string>
+    <string name="welcome_text">
+        "Capture your items, get info.\n"
+        "and instantly save it"
+    </string>
+    <string name="title_app">ShoesIn</string>
+    <string name="inventory">Inventory</string>
+    <string name="management">Management</string>
+    <string name="header_image_description">Header image</string>
+    <string name="next">Next</string>
 </resources>

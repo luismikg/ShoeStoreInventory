@@ -9,5 +9,17 @@
         android:id="@+id/loginFragment"
         android:name="com.udacity.shoestore.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_welcome"
+            app:destination="@id/welcomeScreenFragment"
+            app:enterAnim="@anim/slide_in_bottom_to_top"
+            app:exitAnim="@anim/slide_out_push_to_top"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeScreenFragment"
+        android:name="com.udacity.shoestore.WelcomeScreenFragment"
+        android:label="fragment_welcome_screen"
+        tools:layout="@layout/fragment_welcome_screen" />
 </navigation>

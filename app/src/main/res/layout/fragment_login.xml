@@ -8,21 +8,69 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:paddingLeft="@dimen/fragment_horizontal_margin"
-        android:paddingTop="@dimen/fragment_vertical_margin"
-        android:paddingRight="@dimen/fragment_horizontal_margin"
-        android:paddingBottom="@dimen/fragment_vertical_margin">
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.3"
+            android:scaleType="centerCrop"
+            android:src="@drawable/yello_autumn_shoes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/yello_autumn_shoes" />
+
+        <View
+            android:id="@+id/backgoundView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.2"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/titleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_app"
+            app:layout_constraintBottom_toTopOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="@+id/userNameLabel" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/subTitleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inventory"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/subTitleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/management"
+            app:layout_constraintBottom_toTopOf="@+id/userNameLabel"
+            app:layout_constraintStart_toStartOf="@+id/textView2" />
 
         <EditText
             android:id="@+id/userNameField"
+            style="@style/editTextLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-            android:fontFamily="@font/roboto"
             android:hint="@string/hint_email"
-            android:importantForAutofill="no"
+            android:importantForAutofill="yes"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             app:layout_constraintBottom_toTopOf="@+id/passwordLabel"
@@ -33,17 +81,17 @@
 
         <EditText
             android:id="@+id/passwordField"
+            style="@style/editTextLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-            android:fontFamily="@font/roboto"
             android:hint="@string/hint_password"
             android:imeOptions="actionDone"
-            android:importantForAutofill="no"
+            android:importantForAutofill="yes"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
-            app:layout_constraintBottom_toTopOf="@+id/register_button"
+            app:layout_constraintBottom_toTopOf="@+id/sing_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/passwordLabel"
@@ -51,31 +99,32 @@
 
         <Button
             android:id="@+id/sing_button"
-            style="@style/button_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/action_sign_in"
-            app:layout_constraintBottom_toBottomOf="@+id/register_button"
-            app:layout_constraintEnd_toStartOf="@+id/register_button"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/passwordField"
-            app:layout_constraintTop_toTopOf="@+id/register_button" />
-
-        <Button
-            android:id="@+id/register_button"
-            style="@style/button_login"
-            android:layout_width="wrap_content"
+            style="@style/buttonApp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="16dp"
+            android:onClick="@{() -> loginViewModel.goToWelcomeStart()}"
+            android:text="@string/action_sign_in"
+            app:layout_constraintBottom_toTopOf="@+id/register_button"
+            app:layout_constraintEnd_toEndOf="@+id/passwordField"
+            app:layout_constraintStart_toStartOf="@+id/passwordField"
+            app:layout_constraintTop_toBottomOf="@+id/passwordField" />
+
+        <Button
+            android:id="@+id/register_button"
+            style="@style/buttonApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> loginViewModel.goToWelcomeStart()}"
             android:text="@string/action_register"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/passwordField"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/sing_button"
-            app:layout_constraintTop_toBottomOf="@+id/passwordField"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintStart_toStartOf="@+id/passwordField"
+            app:layout_constraintTop_toBottomOf="@+id/sing_button" />
 
         <TextView
             android:id="@+id/userNameLabel"
@@ -100,4 +149,12 @@
             app:layout_constraintStart_toStartOf="@+id/userNameField"
             app:layout_constraintTop_toBottomOf="@+id/userNameField" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="loginViewModel"
+            type="com.udacity.shoestore.ui.login.LoginViewModel" />
+    </data>
+
 </layout>
