@@ -47,7 +47,7 @@
     <style name="editTextLogin">
         <item name="android:backgroundTint">@color/colorComplementOnePrimary</item>
         <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textColorHint">@color/colorComplementOnePrimary</item>
+        <item name="android:textColorHint">@color/colorComplementTwoPrimary</item>
         <item name="android:textColor">@color/colorComplementOnePrimary</item>
     </style>
 
@@ -62,6 +62,14 @@
         <item name="android:textColor">@color/colorComplementOnePrimary</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="editTextShoeDetail" parent="editTextLogin">
+        <item name="android:backgroundTint">@color/colorComplementOnePrimary</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColorHint">@color/colorComplementTwoPrimary</item>
+        <item name="android:textColor">@color/colorComplementOnePrimary</item>
+        <item name="android:inputType">text</item>
     </style>
 
 </resources>

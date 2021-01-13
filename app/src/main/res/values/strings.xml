@@ -20,4 +20,23 @@
     <string name="management">Management</string>
     <string name="header_image_description">Header image</string>
     <string name="next">Next</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Instructions">Instructions</string>
+    <string name="company">Company</string>
+    <string name="name">Name</string>
+    <string name="company_name">Company name</string>
+    <string name="company_name_dummy">Men Sport Inc.</string>
+    <string name="shoe_name">Shoe name</string>
+    <string name="shoe_name_dummy">Men Sport Shoe</string>
+    <string name="description">Description</string>
+    <string name="twelve_number">12</string>
+    <string name="eleven_number">11</string>
+    <string name="ten_number">10</string>
+    <string name="nine_number">9</string>
+    <string name="eight_number">8</string>
+    <string name="select_available_size">Select available size</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+
 </resources>
