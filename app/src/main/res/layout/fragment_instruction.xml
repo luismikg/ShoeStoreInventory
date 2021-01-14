@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.instruction.InstructionFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,13 +53,13 @@
             app:layout_constraintTop_toBottomOf="@+id/titleInstruction">
 
             <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
+                style="@style/textApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="@dimen/text_margin"
-                android:text="@string/welcome_text"
-                style="@style/textApp" />
+                android:gravity="center"
+                android:text="@string/welcome_text" />
         </androidx.core.widget.NestedScrollView>
 
         <Button
@@ -70,10 +68,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:onClick="@{() -> instructionViewModel.goToShoeListStart()}"
             android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+    <data>
+
+        <variable
+            name="instructionViewModel"
+            type="com.udacity.shoestore.ui.instruction.InstructionViewModel" />
+    </data>
+</layout>

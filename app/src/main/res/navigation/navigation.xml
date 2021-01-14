@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.udacity.shoestore.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_login_to_welcome"
             app:destination="@id/welcomeScreenFragment"
@@ -22,30 +22,40 @@
         android:id="@+id/welcomeScreenFragment"
         android:name="com.udacity.shoestore.ui.welcome.WelcomeFragment"
         android:label="fragment_welcome_screen"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcome_to_instruction"
             app:destination="@id/instructionFragment"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left" />
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
         android:name="com.udacity.shoestore.ui.instruction.InstructionFragment"
         android:label="fragment_instruction"
-        tools:layout="@layout/fragment_instruction" >
+        tools:layout="@layout/fragment_instruction">
         <action
             android:id="@+id/action_instruction_to_shoeList"
-            app:destination="@id/shoeListFragment" />
+            app:destination="@id/shoeListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/shoeListFragment"
         android:name="com.udacity.shoestore.ui.shoeList.ShoeListFragment"
         android:label="fragment_shoe_list"
-        tools:layout="@layout/fragment_shoe_list" >
+        tools:layout="@layout/fragment_shoe_list">
         <action
-            android:id="@+id/action_shoeListFragment_to_shoeDetailFragment"
-            app:destination="@id/shoeDetailFragment" />
+            android:id="@+id/action_shoeList_to_shoeDetail"
+            app:destination="@id/shoeDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/shoeDetailFragment"

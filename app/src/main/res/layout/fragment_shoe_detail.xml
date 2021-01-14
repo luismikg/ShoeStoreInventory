@@ -45,6 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/rounded_shoe"
+            android:onClick="@{()->shoeDetailViewModel.changeShoePicture()}"
             app:layout_constraintBottom_toTopOf="@+id/guidelineShoeBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,14 +56,26 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:contentDescription="@string/header_image_description"
+            android:onClick="@{()->shoeDetailViewModel.changeShoePicture()}"
             android:scaleType="centerInside"
-            android:src="@drawable/shoe_sport"
+            android:src="@drawable/model_1"
             app:layout_constraintBottom_toTopOf="@+id/guidelineShoeBottom"
             app:layout_constraintDimensionRatio="w,1:1"
             app:layout_constraintEnd_toStartOf="@+id/guidelineShoeEnd"
             app:layout_constraintStart_toStartOf="@+id/guidelineShoeStart"
             app:layout_constraintTop_toTopOf="@+id/guidelineShoeTop"
-            tools:src="@drawable/shoe_sport" />
+            tools:src="@drawable/model_1" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{()->shoeDetailViewModel.changeShoePicture()}"
+            android:src="@drawable/touch_app_black_24dp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineShoeBottom"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineShoeEnd" />
 
         <TextView
             android:id="@+id/selectAvailableSize"
@@ -72,7 +85,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/select_available_size"
-            app:layout_constraintBottom_toTopOf="@+id/size"
+            app:layout_constraintBottom_toTopOf="@+id/eightButton"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -81,6 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:onClick="@{()-> shoeDetailViewModel.saveShoeDetailStart()}"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="@+id/cancelButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,17 +107,19 @@
             style="@style/buttonApp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="@{()-> shoeDetailViewModel.cancelShoeDetailStart()}"
             android:text="@android:string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/size"
+            android:id="@+id/eightButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_circle_disabled"
+            android:onClick="@{(view) -> shoeDetailViewModel.setSize(view, 8)}"
             android:text="@string/eight_number"
             app:layout_constraintBottom_toTopOf="@+id/cancelButton"
             app:layout_constraintHorizontal_chainStyle="spread"
@@ -115,9 +131,10 @@
             android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:background="@drawable/rounded_circle_disabled"
+            android:onClick="@{(view) -> shoeDetailViewModel.setSize(view, 9)}"
             android:text="@string/nine_number"
-            app:layout_constraintBottom_toBottomOf="@+id/size"
-            app:layout_constraintStart_toEndOf="@+id/size" />
+            app:layout_constraintBottom_toBottomOf="@+id/eightButton"
+            app:layout_constraintStart_toEndOf="@+id/eightButton" />
 
         <Button
             android:id="@+id/tenButton"
@@ -125,8 +142,9 @@
             android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:background="@drawable/rounded_circle_disabled"
+            android:onClick="@{(view) -> shoeDetailViewModel.setSize(view, 10)}"
             android:text="@string/ten_number"
-            app:layout_constraintBottom_toBottomOf="@+id/size"
+            app:layout_constraintBottom_toBottomOf="@+id/eightButton"
             app:layout_constraintStart_toEndOf="@+id/nineButton" />
 
         <Button
@@ -135,8 +153,9 @@
             android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:background="@drawable/rounded_circle_disabled"
+            android:onClick="@{(view) -> shoeDetailViewModel.setSize(view, 11)}"
             android:text="@string/eleven_number"
-            app:layout_constraintBottom_toBottomOf="@+id/size"
+            app:layout_constraintBottom_toBottomOf="@+id/eightButton"
             app:layout_constraintStart_toEndOf="@+id/tenButton" />
 
         <Button
@@ -145,8 +164,9 @@
             android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:background="@drawable/rounded_circle_disabled"
+            android:onClick="@{(view) -> shoeDetailViewModel.setSize(view, 12)}"
             android:text="@string/twelve_number"
-            app:layout_constraintBottom_toBottomOf="@+id/size"
+            app:layout_constraintBottom_toBottomOf="@+id/eightButton"
             app:layout_constraintStart_toEndOf="@+id/elevenButton" />
 
         <EditText
@@ -156,13 +176,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text=""
             android:autofillHints=""
             android:hint="@string/company_name"
+            android:text="@={shoe.company}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/companyNameText"
-            app:layout_constraintTop_toTopOf="@+id/guidelineShoeBottom"
-            app:text="@string/company_name_dummy" />
+            app:layout_constraintTop_toTopOf="@+id/guidelineShoeBottom" />
 
         <EditText
             android:id="@+id/shoeNameEdit"
@@ -172,11 +191,10 @@
             android:layout_marginEnd="8dp"
             android:autofillHints=""
             android:hint="@string/shoe_name"
-            android:text=""
+            android:text="@={shoe.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/companyNameEdit"
-            app:layout_constraintTop_toBottomOf="@+id/companyNameEdit"
-            app:text="@string/shoe_name_dummy" />
+            app:layout_constraintTop_toBottomOf="@+id/companyNameEdit" />
 
         <TextView
             android:id="@+id/companyNameText"
@@ -211,9 +229,21 @@
             android:importantForAutofill="yes"
             android:inputType="textMultiLine"
             android:padding="10dp"
+            android:text="@={shoe.description}"
             app:layout_constraintBottom_toTopOf="@+id/selectAvailableSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameEdit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="shoeDetailViewModel"
+            type="com.udacity.shoestore.ui.shoeDetail.ShoeDetailViewModel" />
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
 </layout>

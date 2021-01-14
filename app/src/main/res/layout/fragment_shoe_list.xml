@@ -14,10 +14,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()-> shoeListViewModel.goToShoeDetailStart()}"
             android:src="@drawable/ic_add"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:focusable="true" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/textWelcomeScrollView"
@@ -36,7 +37,12 @@
                 android:orientation="vertical" />
 
         </androidx.core.widget.NestedScrollView>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="shoeListViewModel"
+            type="com.udacity.shoestore.ui.shoeList.ShoeListViewModel" />
+    </data>
 </layout>
