@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -34,6 +35,8 @@ class InstructionFragment : Fragment() {
 
         initViewModel()
         initObservers()
+
+        (activity as AppCompatActivity).supportActionBar?.hide()
 
         return binding.root
     }

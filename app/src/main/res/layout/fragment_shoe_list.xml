@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ShoeListFragment">
+    tools:context=".ui.shoeList.ShoeListFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,7 +33,8 @@
             <LinearLayout
                 android:id="@+id/shoeElementList"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
                 android:orientation="vertical" />
 
         </androidx.core.widget.NestedScrollView>

@@ -6,13 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailFragment : Fragment() {
 
@@ -31,6 +31,7 @@ class ShoeDetailFragment : Fragment() {
         initObservers()
 
         changePictureShoeDetailPress("model_0")
+        (activity as AppCompatActivity).supportActionBar?.show()
 
         return binding.root
     }
@@ -62,7 +63,7 @@ class ShoeDetailFragment : Fragment() {
         viewModel.eventSizeViewShoeDetailPress.observe(viewLifecycleOwner, Observer { view ->
             view?.let {
                 clearSizeShoeDetail()
-                changeBackbroundSizeSelectedShoeDetail(view)
+                changeBackgroundSizeSelectedShoeDetail(view)
             }
         })
 
@@ -101,6 +102,7 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun saveShoeDetail() {
+        findNavController().previousBackStackEntry?.savedStateHandle?.set("shoe", viewModel.shoe)
         findNavController().popBackStack()
     }
 
@@ -116,7 +118,7 @@ class ShoeDetailFragment : Fragment() {
         binding.twelveButton.setBackgroundResource(R.drawable.rounded_circle_disabled)
     }
 
-    private fun changeBackbroundSizeSelectedShoeDetail(view: View) {
+    private fun changeBackgroundSizeSelectedShoeDetail(view: View) {
         view.setBackgroundResource(R.drawable.rounded_circle_enabled)
     }
 

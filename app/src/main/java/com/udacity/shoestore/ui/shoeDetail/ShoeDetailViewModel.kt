@@ -8,15 +8,12 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailViewModel : ViewModel() {
 
-    private val imagesName: List<String> =
-        mutableListOf("model_0", "model_1", "model_2", "model_3", "model_4", "model_5")
-
     var shoe = Shoe(
         "",
-        0.0,
+        0,
         "",
         "",
-        -1
+        0
     )
 
     //save
@@ -102,21 +99,16 @@ class ShoeDetailViewModel : ViewModel() {
         _eventCancelShoeDetailPress.value = false
     }
 
-    fun setSize(view: View, size: Double) {
+    fun setSize(view: View, size: Int) {
         _eventSizeViewShoeDetailPress.value = view
         shoe.size = size
     }
 
     fun changeShoePicture() {
-        if (shoe.modelShoe == -1) {
-            shoe.modelShoe = 1
-        }
-
-        _eventPictureShoeDetailPress.value = imagesName[shoe.modelShoe]
         shoe.modelShoe++
-
-        if (shoe.modelShoe >= imagesName.size) {
+        if (shoe.modelShoe >= shoe.modelsAvailable.size) {
             shoe.modelShoe = 0
         }
+        _eventPictureShoeDetailPress.value = shoe.modelsAvailable[shoe.modelShoe]
     }
 }

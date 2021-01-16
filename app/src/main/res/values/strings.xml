@@ -38,5 +38,8 @@
     <string name="select_available_size">Select available size</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="title_shoe_detail">Shoe Detail</string>
+    <string name="title_shoes_added">Shoes Added</string>
+    <string name="logout">Logout</string>
 
 </resources>

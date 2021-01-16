@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -29,7 +30,7 @@ class LoginFragment : Fragment() {
         initViewModel()
         initObservers()
 
-        //TODO: Revisar lo del actionBar en la activity
+        (activity as AppCompatActivity).supportActionBar?.hide()
 
         return binding.root
     }
@@ -41,9 +42,9 @@ class LoginFragment : Fragment() {
         binding.loginViewModel = viewModel
     }
 
-    private fun initObservers(){
+    private fun initObservers() {
         viewModel.eventLoginMade.observe(viewLifecycleOwner, Observer {
-            if (it){
+            if (it) {
                 goToWelcome()
                 viewModel.goToWelcomeComplete()
             }
