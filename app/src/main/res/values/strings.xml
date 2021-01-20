@@ -11,6 +11,16 @@
     <string name="login_failed">"Login failed"</string>
     <string name="user">User</string>
     <string name="password">Password</string>
+    <string name="instruction_one_text">
+        "Press the three dots in the\n"
+        "upper right corner to logout.\n\n"
+        "Press the pink button to add \n"
+        "new shoes to the list"
+    </string>
+    <string name="instruction_two_text">
+        "Fill the fields and select\n"
+        "the size of the shoe"
+    </string>
     <string name="welcome_text">
         "Capture your items, get info.\n"
         "and instantly save it"

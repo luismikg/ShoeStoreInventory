@@ -9,7 +9,7 @@ class ShoeListViewModel : ViewModel() {
 
     private var listShoe: MutableList<Shoe> = mutableListOf()
 
-    private val _eventAddShoeListPress = MutableLiveData<Boolean>(false)
+    private val _eventAddShoeListPress = MutableLiveData(false)
     val eventAddShoeListPress: LiveData<Boolean>
         get() = _eventAddShoeListPress
 

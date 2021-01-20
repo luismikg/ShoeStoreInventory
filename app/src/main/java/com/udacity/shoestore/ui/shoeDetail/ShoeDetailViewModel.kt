@@ -17,12 +17,12 @@ class ShoeDetailViewModel : ViewModel() {
     )
 
     //save
-    private val _eventSaveShoeDetailPress = MutableLiveData<Boolean>(false)
+    private val _eventSaveShoeDetailPress = MutableLiveData(false)
     val eventSaveShoeDetailPress: LiveData<Boolean>
         get() = _eventSaveShoeDetailPress
 
     //cancel
-    private val _eventCancelShoeDetailPress = MutableLiveData<Boolean>(false)
+    private val _eventCancelShoeDetailPress = MutableLiveData(false)
     val eventCancelShoeDetailPress: LiveData<Boolean>
         get() = _eventCancelShoeDetailPress
 
@@ -36,23 +36,18 @@ class ShoeDetailViewModel : ViewModel() {
     val eventSizeViewShoeDetailPress: LiveData<View>
         get() = _eventSizeViewShoeDetailPress
 
-    //missing name
-    private val _eventSaveFailByNameCompanyShoeDetailPress = MutableLiveData<Boolean>(false)
-    val eventSaveFailByNameCompanyShoeDetailPress: LiveData<Boolean>
-        get() = _eventSaveFailByNameCompanyShoeDetailPress
-
-    //missing name company
-    private val _eventSaveFailByNameShoeDetail = MutableLiveData<Boolean>(false)
+    //missing name shoe
+    private val _eventSaveFailByNameShoeDetail = MutableLiveData(false)
     val eventSaveFailByNameShoeDetail: LiveData<Boolean>
         get() = _eventSaveFailByNameShoeDetail
 
     //missing size shoe
-    private val _eventSaveFailBySizeShoeDetail = MutableLiveData<Boolean>(false)
+    private val _eventSaveFailBySizeShoeDetail = MutableLiveData(false)
     val eventSaveFailBySizeShoeDetail: LiveData<Boolean>
         get() = _eventSaveFailBySizeShoeDetail
 
     //missing name company
-    private val _eventSaveFailByNameCompanyShoeDetail = MutableLiveData<Boolean>(false)
+    private val _eventSaveFailByNameCompanyShoeDetail = MutableLiveData(false)
     val eventSaveFailByNameCompanyShoeDetail: LiveData<Boolean>
         get() = _eventSaveFailByNameCompanyShoeDetail
 

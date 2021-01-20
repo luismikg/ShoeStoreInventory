@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
@@ -24,7 +23,7 @@ class ShoeDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
 
         initViewModel()
@@ -46,21 +45,21 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun initObservers() {
-        viewModel.eventSaveShoeDetailPress.observe(viewLifecycleOwner, Observer {
+        viewModel.eventSaveShoeDetailPress.observe(viewLifecycleOwner, {
             if (it) {
                 saveShoeDetail()
                 viewModel.saveShoeDetailComplete()
             }
         })
 
-        viewModel.eventCancelShoeDetailPress.observe(viewLifecycleOwner, Observer {
+        viewModel.eventCancelShoeDetailPress.observe(viewLifecycleOwner, {
             if (it) {
                 cancelShoeDetail()
                 viewModel.cancelShoeDetailComplete()
             }
         })
 
-        viewModel.eventSizeViewShoeDetailPress.observe(viewLifecycleOwner, Observer { view ->
+        viewModel.eventSizeViewShoeDetailPress.observe(viewLifecycleOwner, { view ->
             view?.let {
                 clearSizeShoeDetail()
                 changeBackgroundSizeSelectedShoeDetail(view)
@@ -69,13 +68,13 @@ class ShoeDetailFragment : Fragment() {
 
         viewModel.eventPictureShoeDetailPress.observe(
             viewLifecycleOwner,
-            Observer { nameModelShoe ->
+            { nameModelShoe ->
                 nameModelShoe?.let {
                     changePictureShoeDetailPress(nameModelShoe)
                 }
             })
 
-        viewModel.eventSaveFailByNameShoeDetail.observe(viewLifecycleOwner, Observer {
+        viewModel.eventSaveFailByNameShoeDetail.observe(viewLifecycleOwner, {
             if (it) {
                 val message = "The name of the shoe is required"
                 showAlert(message)
@@ -83,7 +82,7 @@ class ShoeDetailFragment : Fragment() {
             }
         })
 
-        viewModel.eventSaveFailBySizeShoeDetail.observe(viewLifecycleOwner, Observer {
+        viewModel.eventSaveFailBySizeShoeDetail.observe(viewLifecycleOwner, {
             if (it) {
                 val message = "The shoe's size is required"
                 showAlert(message)
@@ -92,7 +91,7 @@ class ShoeDetailFragment : Fragment() {
         })
 
         viewModel.eventSaveFailByNameCompanyShoeDetail
-            .observe(viewLifecycleOwner, Observer {
+            .observe(viewLifecycleOwner, {
                 if (it) {
                     val message = "The name of the company is required"
                     showAlert(message)

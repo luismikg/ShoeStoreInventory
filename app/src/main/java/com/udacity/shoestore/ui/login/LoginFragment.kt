@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
@@ -43,7 +42,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun initObservers() {
-        viewModel.eventLoginMade.observe(viewLifecycleOwner, Observer {
+        viewModel.eventLoginMade.observe(viewLifecycleOwner, {
             if (it) {
                 goToWelcome()
                 viewModel.goToWelcomeComplete()
@@ -51,8 +50,8 @@ class LoginFragment : Fragment() {
         })
     }
 
-    fun goToWelcome() {
-        findNavController().navigate(R.id.action_login_to_welcome)
+    private fun goToWelcome() {
+        findNavController().navigate(LoginFragmentDirections.actionLoginToWelcome())
     }
 
 }

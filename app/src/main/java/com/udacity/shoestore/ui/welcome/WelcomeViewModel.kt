@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class WelcomeViewModel : ViewModel() {
 
-    private val _eventNextInstructionPress = MutableLiveData<Boolean>(false)
+    private val _eventNextInstructionPress = MutableLiveData(false)
     val eventNextInstructionPress: LiveData<Boolean>
         get() = _eventNextInstructionPress
 

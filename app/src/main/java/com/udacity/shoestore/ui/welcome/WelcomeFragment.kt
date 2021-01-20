@@ -9,7 +9,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
@@ -40,7 +39,7 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun setBackPressedConfiguration() {
-        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 val i = Intent()
                 i.action = Intent.ACTION_MAIN
@@ -58,7 +57,7 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun initObservers() {
-        viewModel.eventNextInstructionPress.observe(viewLifecycleOwner, Observer {
+        viewModel.eventNextInstructionPress.observe(viewLifecycleOwner, {
             if (it) {
                 goToInstruction()
                 viewModel.goToInstructionComplete()
@@ -67,6 +66,6 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun goToInstruction() {
-        findNavController().navigate(R.id.action_welcome_to_instruction)
+        findNavController().navigate(R.id.action_welcome_to_instructionList)
     }
 }

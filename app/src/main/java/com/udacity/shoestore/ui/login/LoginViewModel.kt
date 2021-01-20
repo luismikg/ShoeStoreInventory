@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
 
-    private val _eventLoginMade = MutableLiveData<Boolean>(false)
+    private val _eventLoginMade = MutableLiveData(false)
     val eventLoginMade: LiveData<Boolean>
         get() = _eventLoginMade
 
