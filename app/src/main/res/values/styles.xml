@@ -16,4 +16,60 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="labelLogin">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorComplementOnePrimary</item>
+
+    </style>
+
+    <style name="buttonApp">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/colorComplementOnePrimary</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="titleLogin">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/colorComplementOnePrimary</item>
+        <item name="android:textSize">50sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="subTitleLogin">
+        <item name="android:textColor">@color/colorComplementOnePrimary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="editTextLogin">
+        <item name="android:backgroundTint">@color/colorComplementOnePrimary</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColorHint">@color/colorComplementTwoPrimary</item>
+        <item name="android:textColor">@color/colorComplementOnePrimary</item>
+    </style>
+
+    <style name="textApp">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/colorComplementOnePrimary</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="titleWelcome">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/colorComplementOnePrimary</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="editTextShoeDetail" parent="editTextLogin">
+        <item name="android:backgroundTint">@color/colorComplementOnePrimary</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColorHint">@color/colorComplementTwoPrimary</item>
+        <item name="android:textColor">@color/colorComplementOnePrimary</item>
+        <item name="android:inputType">text</item>
+    </style>
+
 </resources>

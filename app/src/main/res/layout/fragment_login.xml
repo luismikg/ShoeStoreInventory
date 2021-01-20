@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.login.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.3"
+            android:scaleType="centerCrop"
+            android:src="@drawable/yello_autumn_shoes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/yello_autumn_shoes" />
+
+        <View
+            android:id="@+id/backgoundView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.2"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/titleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_app"
+            app:layout_constraintBottom_toTopOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="@+id/userNameLabel" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/subTitleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inventory"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/subTitleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/management"
+            app:layout_constraintBottom_toTopOf="@+id/userNameLabel"
+            app:layout_constraintStart_toStartOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/userNameField"
+            style="@style/editTextLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:hint="@string/hint_email"
+            android:importantForAutofill="yes"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            app:layout_constraintBottom_toTopOf="@+id/passwordLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/userNameLabel"
+            app:layout_constraintTop_toBottomOf="@+id/userNameLabel" />
+
+        <EditText
+            android:id="@+id/passwordField"
+            style="@style/editTextLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:hint="@string/hint_password"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="yes"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            app:layout_constraintBottom_toTopOf="@+id/sing_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/passwordLabel"
+            app:layout_constraintTop_toBottomOf="@+id/passwordLabel" />
+
+        <Button
+            android:id="@+id/sing_button"
+            style="@style/buttonApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            android:onClick="@{() -> loginViewModel.goToWelcomeStart()}"
+            android:text="@string/action_sign_in"
+            app:layout_constraintBottom_toTopOf="@+id/register_button"
+            app:layout_constraintEnd_toEndOf="@+id/passwordField"
+            app:layout_constraintStart_toStartOf="@+id/passwordField"
+            app:layout_constraintTop_toBottomOf="@+id/passwordField" />
+
+        <Button
+            android:id="@+id/register_button"
+            style="@style/buttonApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> loginViewModel.goToWelcomeStart()}"
+            android:text="@string/action_register"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/passwordField"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/passwordField"
+            app:layout_constraintTop_toBottomOf="@+id/sing_button" />
+
+        <TextView
+            android:id="@+id/userNameLabel"
+            style="@style/labelLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/user"
+            app:layout_constraintBottom_toTopOf="@+id/userNameField"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/passwordLabel"
+            style="@style/labelLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/password"
+            app:layout_constraintBottom_toTopOf="@+id/passwordField"
+            app:layout_constraintStart_toStartOf="@+id/userNameField"
+            app:layout_constraintTop_toBottomOf="@+id/userNameField" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="loginViewModel"
+            type="com.udacity.shoestore.ui.login.LoginViewModel" />
+    </data>
+
+</layout>
