@@ -62,7 +62,7 @@ Creates a layout for the item.
 	2. Uses data binding to save data
 	3. Uses a save button to save data to view model
 
-### Layouts
+### Navigation
 
 * Create a navigation file that correctly takes a user from one page to the next in an Android app
 	* The app needs to traverse the following screens in the correct order:
