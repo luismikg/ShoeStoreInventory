@@ -1,7 +1,13 @@
 # ShoesIn
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-LovelyDialog-green.svg?style=true)](https://android-arsenal.com/details/1/3452)
+![License](https://img.shields.io/github/license/Lambda3/dotnet-commands.svg)
 
-This library is a set of simple wrapper classes that are aimed to help you easily create fancy material dialogs.
+This App has been developed as part of the Udacity Android Kotlin Developer Nanodegree Course for the Exercise Project "Shoe Store app". In this project I applyed my skills in building layouts and navigation files by building a Shoe Store app. The app is building with four screens:
+
+Login
+Onboarding
+Instruccions
+Shoe listing
+Shoe detail page
 
 ![Screenshots](https://raw.githubusercontent.com/yarolegovich/lovelydialog/master/art/lovelydialogs_framed.png)
 
