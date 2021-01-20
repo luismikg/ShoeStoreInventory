@@ -8,9 +8,10 @@ This App has been developed as part of the Udacity Android Kotlin Developer Nano
 * Instruccions
 * Shoe listing
 * Shoe detail page
-<!--
-add screenshot images
--->
+
+|Login|Onboarding|Instruction screen 1|Instruction screen 2|Shoes list|Shoe detail|
+|---|---|---|---|---|---|
+|![login](https://github.com/luismikg/ShoeStoreInventory/blob/imagesForReadme/images/login.png)|![welcome](https://github.com/luismikg/ShoeStoreInventory/blob/imagesForReadme/images/welcome.png)|![instruction1](https://github.com/luismikg/ShoeStoreInventory/blob/imagesForReadme/images/instruction_1.png)|![instruction2](https://github.com/luismikg/ShoeStoreInventory/blob/imagesForReadme/images/instruction_2.png)|![list](https://github.com/luismikg/ShoeStoreInventory/blob/imagesForReadme/images/shoe_list.png)|![detail](https://github.com/luismikg/ShoeStoreInventory/blob/imagesForReadme/images/shoe_detail.png)|
 
 ---
 
