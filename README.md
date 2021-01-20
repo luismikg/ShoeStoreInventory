@@ -6,8 +6,8 @@ This App has been developed as part of the Udacity Android Kotlin Developer Nano
 * Login
 * Onboarding
 * Instruccions
-* Shoe listing
-* Shoe detail page
+* Shoe list
+* Shoe detail
 
 |Login|Onboarding|Instruction screen 1|Instruction screen 2|Shoes list|Shoe detail|
 |---|---|---|---|---|---|
