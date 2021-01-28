@@ -12,14 +12,13 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.Shoe
-import kotlinx.android.synthetic.main.layout_element_shoe.view.*
+import com.udacity.shoestore.ShareViewModel
+import com.udacity.shoestore.databinding.LayoutElementShoeBinding
 
 class ShoeListFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeListBinding
-
-    private lateinit var viewModel: ShoeListViewModel
-    private lateinit var viewModelFactory: ShoeListViewModelFactory
+    private lateinit var viewModel: ShareViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,10 +63,9 @@ class ShoeListFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModelFactory = ShoeListViewModelFactory()
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ShoeListViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
 
-        binding.shoeListViewModel = viewModel
+        binding.listShareViewModel = viewModel
     }
 
     private fun initObservers() {
@@ -78,42 +76,40 @@ class ShoeListFragment : Fragment() {
             }
         })
 
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Shoe>("shoe")
-            ?.observe(
-                viewLifecycleOwner
-            ) { shoe ->
-                addNewShoe(shoe)
-            }
-
+        viewModel.shoesList.observe(viewLifecycleOwner, { listShoes ->
+            initShoeList(listShoes)
+        })
     }
 
     private fun goToShoeList() {
         findNavController().navigate(R.id.action_shoeList_to_shoeDetail)
     }
 
-    private fun addNewShoe(newShoe: Shoe) {
+    private fun initShoeList(listShoes: MutableList<Shoe>) {
         val parentLayout = binding.shoeElementList
 
-        viewModel.saveNewShoe(newShoe)
-
         var index = 0
-        while (index < viewModel.getShoeSize()) {
-            val shoeLayout =
-                layoutInflater.inflate(R.layout.layout_element_shoe, parentLayout, false)
+        while (index < listShoes.size) {
+            val shoeBinding: LayoutElementShoeBinding = DataBindingUtil.inflate(
+                layoutInflater,
+                R.layout.layout_element_shoe,
+                parentLayout,
+                false
+            )
 
-            val shoe = viewModel.getShoe(index)
-            shoeLayout.nameShoeList.text = shoe.name
-            shoeLayout.nameCompanyList.text = shoe.company
-            shoeLayout.sizeShoeList.text = shoe.size.toString()
+            val shoe = listShoes[index]
+            shoeBinding.nameShoeList.text = shoe.name
+            shoeBinding.nameCompanyList.text = shoe.company
+            shoeBinding.sizeShoeList.text = shoe.size.toString()
             when (shoe.modelsAvailable[shoe.modelShoe]) {
-                "model_0" -> shoeLayout.imageShoeList.setImageResource(R.drawable.model_0)
-                "model_1" -> shoeLayout.imageShoeList.setImageResource(R.drawable.model_1)
-                "model_2" -> shoeLayout.imageShoeList.setImageResource(R.drawable.model_2)
-                "model_3" -> shoeLayout.imageShoeList.setImageResource(R.drawable.model_3)
-                "model_4" -> shoeLayout.imageShoeList.setImageResource(R.drawable.model_4)
-                "model_5" -> shoeLayout.imageShoeList.setImageResource(R.drawable.model_5)
+                "model_0" -> shoeBinding.imageShoeList.setImageResource(R.drawable.model_0)
+                "model_1" -> shoeBinding.imageShoeList.setImageResource(R.drawable.model_1)
+                "model_2" -> shoeBinding.imageShoeList.setImageResource(R.drawable.model_2)
+                "model_3" -> shoeBinding.imageShoeList.setImageResource(R.drawable.model_3)
+                "model_4" -> shoeBinding.imageShoeList.setImageResource(R.drawable.model_4)
+                "model_5" -> shoeBinding.imageShoeList.setImageResource(R.drawable.model_5)
             }
-            parentLayout.addView(shoeLayout)
+            parentLayout.addView(shoeBinding.root)
 
             index++
         }

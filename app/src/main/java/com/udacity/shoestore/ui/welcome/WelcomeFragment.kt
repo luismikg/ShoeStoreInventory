@@ -12,13 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
+import com.udacity.shoestore.ShareViewModel
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
 
     private lateinit var binding: FragmentWelcomeBinding
-    private lateinit var viewModel: WelcomeViewModel
-    private lateinit var viewModelFactory: WelcomeViewModelFactory
+    private lateinit var viewModel: ShareViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,14 +50,13 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModelFactory = WelcomeViewModelFactory()
-        viewModel = ViewModelProvider(this, viewModelFactory).get(WelcomeViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
 
-        binding.welcomeViewModel = viewModel
+        binding.welcomeShareViewModel = viewModel
     }
 
     private fun initObservers() {
-        viewModel.eventNextInstructionPress.observe(viewLifecycleOwner, {
+        viewModel.eventNextWelcomePress.observe(viewLifecycleOwner, {
             if (it) {
                 goToInstruction()
                 viewModel.goToInstructionComplete()

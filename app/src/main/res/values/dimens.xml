@@ -2,5 +2,23 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>
-    <dimen name="text_margin">16dp</dimen>
+    <dimen name="value_10">10dp</dimen>
+    <dimen name="value_16">16dp</dimen>
+    <dimen name="value_15">15dp</dimen>
+    <dimen name="value_30">30dp</dimen>
+    <dimen name="value_36">36dp</dimen>
+    <dimen name="value_150">150dp</dimen>
+    <dimen name="zero_width">0dp</dimen>
+    <dimen name="zero_height">0dp</dimen>
+    <dimen name="percent_10" type="dimen" format="float">0.1</dimen>
+    <dimen name="percent_30" type="dimen" format="float">0.3</dimen>
+    <dimen name="percent_60" type="dimen" format="float">0.6</dimen>
+    <dimen name="percent_90" type="dimen" format="float">0.9</dimen>
+    <dimen name="value_8">8dp</dimen>
+    <dimen name="value_50">50dp</dimen>
+    <dimen name="value_100">100dp</dimen>
+    <dimen name="weight_1">1</dimen>
+    <dimen name="value_24">24dp</dimen>
+    <item name="alpha_03" type="dimen" format="float">0.3</item>
+    <item name="alpha_02" type="dimen" format="float">0.2</item>
 </resources>
