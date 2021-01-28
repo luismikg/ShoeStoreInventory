@@ -101,6 +101,12 @@ Creates a layout for the item.
 
 ---
 
+## Review from the Reviewer (Udacity)
+
+![review](https://github.com/luismikg/ShoeStoreInventory/blob/imagesForReadme/images/complete_review_project_1.PNG)
+
+---
+
 ## License
 
 ```
