@@ -10,14 +10,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
+import com.udacity.shoestore.ShareViewModel
 import com.udacity.shoestore.databinding.FragmentInstructionDetailBinding
 
 class InstructionDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentInstructionDetailBinding
-
-    private lateinit var viewModel: InstructionDetailViewModel
-    private lateinit var viewModelFactory: InstructionDetailViewModelFactory
+    private lateinit var viewModel: ShareViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,10 +33,9 @@ class InstructionDetailFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModelFactory = InstructionDetailViewModelFactory()
-        viewModel = ViewModelProvider(this, viewModelFactory).get(InstructionDetailViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
 
-        binding.instructionDetailViewModel = viewModel
+        binding.instructionDetailShareViewModel = viewModel
     }
 
     private fun initObservers() {

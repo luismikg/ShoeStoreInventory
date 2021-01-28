@@ -11,14 +11,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
+import com.udacity.shoestore.ShareViewModel
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 
 class ShoeDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeDetailBinding
-
-    private lateinit var viewModel: ShoeDetailViewModel
-    private lateinit var viewModelFactory: ShoeDetailViewModelFactory
+    private lateinit var viewModel: ShareViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,12 +34,15 @@ class ShoeDetailFragment : Fragment() {
         return binding.root
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.clearShoeTemplate()
+    }
+
     private fun initViewModel() {
+        viewModel = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
 
-        viewModelFactory = ShoeDetailViewModelFactory()
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ShoeDetailViewModel::class.java)
-
-        binding.shoeDetailViewModel = viewModel
+        binding.detailShoeDetailViewModel = viewModel
         binding.shoe = viewModel.shoe
     }
 
@@ -101,7 +103,6 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun saveShoeDetail() {
-        findNavController().previousBackStackEntry?.savedStateHandle?.set("shoe", viewModel.shoe)
         findNavController().popBackStack()
     }
 

@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.instructionList.InstructionListFragment">
 
+    <!--
+    I have chosen a Constraintlayout because is more easy to build the screen
+    and I have add a NestedScrollView because it can be work better to show
+    the instructions text with small smart phones.
+    -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,17 +20,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.6"
+            app:layout_constraintGuide_percent="@dimen/percent_60"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:background="@color/colorComplementOnePrimary"
             android:id="@+id/headImage"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:padding="100dp"
+            android:layout_width="@dimen/zero_width"
+            android:layout_height="@dimen/zero_height"
             android:adjustViewBounds="true"
+            android:background="@color/colorComplementOnePrimary"
             android:contentDescription="@string/header_image_description"
+            android:padding="@dimen/value_100"
             android:scaleType="centerCrop"
             android:src="@drawable/lists_hoes_opt"
             app:layout_constraintBottom_toTopOf="@+id/guidelineHeadImage"
@@ -38,9 +44,9 @@
             style="@style/titleWelcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/value_8"
+            android:layout_marginTop="@dimen/value_8"
+            android:layout_marginEnd="@dimen/value_8"
             android:gravity="center"
             android:text="@string/Instructions"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,9 +56,11 @@
         <androidx.core.widget.NestedScrollView
             android:id="@+id/textInstructionScrollView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="@dimen/zero_height"
+            android:layout_weight="@dimen/weight_1"
             app:layout_constraintBottom_toTopOf="@+id/nextButtonInstruction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleInstruction">
 
             <TextView
@@ -60,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/text_margin"
+                android:layout_margin="@dimen/value_16"
                 android:gravity="center"
                 android:text="@string/instruction_one_text" />
         </androidx.core.widget.NestedScrollView>
@@ -68,10 +76,10 @@
         <Button
             android:id="@+id/nextButtonInstruction"
             style="@style/buttonApp"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_width"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:onClick="@{() -> instructionListViewModel.goToInstructionDetailStart()}"
+            android:onClick="@{() -> instructionListShareViewModel.goToInstructionDetailStart()}"
             android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +89,7 @@
     <data>
 
         <variable
-            name="instructionListViewModel"
-            type="com.udacity.shoestore.ui.instructionList.InstructionListViewModel" />
+            name="instructionListShareViewModel"
+            type="com.udacity.shoestore.ShareViewModel" />
     </data>
 </layout>

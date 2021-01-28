@@ -10,13 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
+import com.udacity.shoestore.ShareViewModel
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var viewModel: LoginViewModel
-    private lateinit var viewModelFactory: LoginViewModelFactory
+    private lateinit var viewModel: ShareViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,10 +35,9 @@ class LoginFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModelFactory = LoginViewModelFactory()
-        viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
 
-        binding.loginViewModel = viewModel
+        binding.loginShareViewModel = viewModel
     }
 
     private fun initObservers() {
